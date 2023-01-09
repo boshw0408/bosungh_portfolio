@@ -7,6 +7,6 @@ export default [
     {
         name: "screen",
         type: "videoTexture",
-        path: "/textures/Amazing Shots of CYBERPUNK EDGERUNNERS1080p (online-video-cutter.com).mp4",
+        path: "/textures/Cyberpunk.mp4",
     },
 ];
