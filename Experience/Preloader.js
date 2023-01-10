@@ -38,7 +38,7 @@ export default class Preloader extends EventEmitter {
             this.timeline = new GSAP.timeline();
             this.timeline
             .to(".preloader", {
-                delay: 1,
+                delay: 0.8,
                 scale: 0,
                 onComplete: () =>{
                     document.querySelector(".preloader").classList.add(".hidden");
@@ -269,6 +269,51 @@ export default class Preloader extends EventEmitter {
                 },
                 ">-0.3"
             )
+            .to(
+                this.roomChildren.gamecontroller1.scale,
+                {
+                    x: 1,
+                    y: 1,
+                    z: 1,
+                    ease: "back.out(2.2)",
+                    duration: 0.5,
+                },
+                ">-0.3"
+            )
+            .to(
+                this.roomChildren.gamecontroller2.scale,
+                {
+                    x: 1,
+                    y: 1,
+                    z: 1,
+                    ease: "back.out(2.2)",
+                    duration: 0.5,
+                },
+                ">-0.35"
+            )
+            .to(
+                this.roomChildren.gamecontroller3.scale,
+                {
+                    x: 1,
+                    y: 1,
+                    z: 1,
+                    ease: "back.out(2.2)",
+                    duration: 0.5,
+                },
+                ">-0.4"
+            )
+            .to(
+                this.roomChildren.gamecontroller4.scale,
+                {
+                    x: 1,
+                    y: 1,
+                    z: 1,
+                    ease: "back.out(2.2)",
+                    duration: 0.5,
+                },
+                ">-0.45"
+            )
+            
             .to(
                 this.roomChildren.keyboard.scale,
                 {
