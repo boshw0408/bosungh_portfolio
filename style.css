@@ -321,9 +321,10 @@ html, body{
   margin-top: 10px;
 }
 
-.section-image-boba{
+.section-image-boba {
+  object-fit: contain; 
   width: 100%;
-  height: 50%;
+  height: auto; 
 }
 
 
