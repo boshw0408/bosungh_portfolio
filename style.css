@@ -298,6 +298,8 @@ html, body{
 
 .section-image-wrapper{
   position: relative;
+  height: auto;
+  overflow: hidden;
 }
 
 .section-image-learn-more-button{
