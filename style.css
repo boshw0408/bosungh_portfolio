@@ -298,8 +298,6 @@ html, body{
 
 .section-image-wrapper{
   position: relative;
-  height: auto;
-  overflow: hidden;
 }
 
 .section-image-learn-more-button{
@@ -323,12 +321,17 @@ html, body{
   margin-top: 10px;
 }
 
-.section-image-boba {
-  object-fit: contain; 
-  width: 100%;
-  height: auto; 
+.section-video-wrapper{
+  position: relative;
 }
 
+.section-demo-video {
+  max-width: 300px; 
+  height: auto;
+  border-radius: 40px; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 10px; 
+}
 
 .tools-wrapper{
   width: 100%;
