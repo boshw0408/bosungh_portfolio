@@ -321,6 +321,12 @@ html, body{
   margin-top: 10px;
 }
 
+.section-image-boba{
+  width: 100%;
+  height: 80%;
+}
+
+
 .tools-wrapper{
   width: 100%;
   display: flex;
