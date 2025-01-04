@@ -321,6 +321,12 @@ html, body{
   margin-top: 10px;
 }
 
+.section-image-chatbot{
+  width: 30%;
+  height: 100%;
+  margin-top: 10px;
+}
+
 .section-boba-wrapper{
   position: relative;
   display: flex;
