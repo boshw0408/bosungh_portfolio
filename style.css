@@ -10,11 +10,11 @@
 }
 
 h1{
-  font-size: 2.2em;
+  font-size: 2.3em;
 }
 
 h2{
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
 a{
@@ -189,7 +189,7 @@ html, body{
   left: 60px;
 }
 
-/* sextion page ------------------------------------------ */
+/* section page ------------------------------------------ */
 .section-margin{
   height: 2500px;
   width: 100%;
@@ -236,11 +236,15 @@ html, body{
   margin-top: 64px;
   color: var(--color-text);
 }
+.course-text {
+  margin-top: 18px;
+  font-size: 17.5px;
+}
 
 .section-text{
   line-height: 2;
   margin-top: 18px;
-  font-size: 18px;
+  font-size: 19px;
 }
 
 .section-number{
@@ -300,34 +304,25 @@ html, body{
   position: relative;
 }
 
-.section-image-learn-more-button{
-  position: absolute;
-  top: 43%;
-  left: 36%;
-  z-index: 99999;
-  text-align: center;
-  font-size: 1.5rem;
-  padding-left: 10px;
-  padding-right: 10px;
-  border: 2px solid var(--color-text-light);
-  background-color: var(--color-background-light);
-  border-radius: 20px;
-  display: none;
-}
-
 .section-image{
   width: 100%;
   height: 100%;
   margin-top: 10px;
 }
 
-.section-image-chatbot{
-  width: 30%;
+.section-image-NLP{
+  width: 100%;
   height: 100%;
   margin-top: 10px;
 }
 
-.section-boba-wrapper{
+.section-image-chatbot{
+  width: 60%;
+  margin-top: 10px;
+}
+
+
+.section-boba-image-wrapper{
   position: relative;
   display: flex;
   align-items: center; 
@@ -336,18 +331,36 @@ html, body{
 }
 
 .section-image-boba{
-  max-width: 300px; 
+  max-width: 220px; 
   height: 100%;
   margin-top: 10px;
   border-radius: 50px; 
 }
 
 .section-demo-video {
-  max-width: 310px; 
+  max-width: 230px; 
   height: auto;
   border-radius: 40px; 
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   margin-top: 10px; 
+}
+
+.section-image-learn-more-button{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  text-align: center;
+  font-size: 1.5rem;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid var(--color-text-light);
+  background-color: var(--color-background-light);
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .tools-wrapper{
@@ -392,3 +405,8 @@ a:hover{
 /* .section-image:hover{
   filter: blur(2.5px); 
 } */
+
+.section-image-wrapper:hover .section-image-learn-more-button {
+  opacity: 1;
+  pointer-events: auto;
+}

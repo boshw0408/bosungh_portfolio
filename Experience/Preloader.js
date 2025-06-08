@@ -38,7 +38,7 @@ export default class Preloader extends EventEmitter {
             this.timeline = new GSAP.timeline();
             this.timeline
             .to(".preloader", {
-                delay: 0.3,
+                delay: 0.2,
                 scale: 0,
                 onComplete: () =>{
                     document.querySelector(".preloader").classList.add(".hidden");
