@@ -345,6 +345,14 @@ html, body{
   margin-top: 10px; 
 }
 
+
+.section-demo-video-campass {
+  width: 100%; 
+  height: auto;
+  border-radius: 40px; 
+}
+
+
 .section-image-learn-more-button{
   position: absolute;
   top: 50%;
