@@ -224,6 +224,15 @@ html, body{
   padding-bottom: 400px;
 }
 
+.section-intro-wrapper-myworks{
+  position: relative;
+  padding: 20% 5%;
+  border-bottom: 2px solid var(--color-text-light);
+  padding-bottom: 400px;
+  margin-top: 20%;
+  margin-left: 10%;
+}
+
 .section-detail-wrapper{
   position: relative;
   padding: 15% 5%;
@@ -250,12 +259,17 @@ html, body{
 .section-number{
   position: absolute;
   bottom: 15px;
-  right: 0;
+  right: 12%;
   font-size: 24px;
 }
 
+
 /* Title Decoration of Section ----------------------------*/
 .section-title{
+  position: relative;
+}
+
+.section-title-myworks{
   position: relative;
 }
 
@@ -316,12 +330,6 @@ html, body{
   margin-top: 10px;
 }
 
-.section-image-chatbot{
-  width: 60%;
-  margin-top: 10px;
-}
-
-
 .section-boba-image-wrapper{
   position: relative;
   display: flex;
@@ -376,6 +384,7 @@ html, body{
   display: flex;
   margin-top: 10px;
   gap: 10px;
+  flex-wrap: wrap; 
 }
 
 .tool{
