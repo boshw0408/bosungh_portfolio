@@ -10,12 +10,12 @@
     ></script>
   </head>
   <body>
-    <div class="experience">
+    <div class="experience" aria-hidden="true">
       <canvas class="experience-canvas"></canvas>
     </div>
 
     <!-- Preloader -->
-    <div class="preloader">
+    <div class="preloader" role="status" aria-label="Loading page content">
       <div class="preloader-wrapper">
         <div id="loader">
           <div id="shadow"></div>
@@ -27,7 +27,7 @@
 
     <div class="page" asscroll-container>
       <div class="page-wrapper" asscroll>
-        <section class="hero">
+        <main class="hero" role="banner">
           <div class="hero-wrapper">
             <div class="intro-text">Welcome To My Portfolio</div>
             <div class="arrow-svg-wrapper">
@@ -44,18 +44,21 @@
               <h2 class="hero-main-description">PORTFOLIO</h2>
             </div>
           </div>
-        </section>
+        </main>
 
         <!-- first section -->
         <div class="first-move section-margin"></div>
 
-        <section class="first-section section left">
+        <section
+          class="first-section section left"
+          aria-labelledby="about-heading"
+        >
           <div class="progress-wrapper progress-bar-wrapper-left">
             <div class="progress-bar"></div>
           </div>
 
           <div class="section-intro-wrapper">
-            <h1 class="section-title">
+            <h1 class="section-title" id="about-heading">
               <span class="section-title-text">About Me</span>
               <div class="section-title-decoration styleOne"></div>
               <div class="section-title-decoration styleTwo"></div>
@@ -82,7 +85,7 @@
               Expected Graduation Date: Dec 16, 2025 <br />
               Cumulative GPA: 3.71/4.00 <br />
             </p>
-            <h3 class="section-heading">Relavant Coursework</h3>
+            <h3 class="section-heading">Relevant Coursework</h3>
             <p class="course-text">
               <span class="section-text">Computer Science & Engineering</span
               ><br />
@@ -110,13 +113,16 @@
         <!-- second section -->
         <div class="second-move section-margin"></div>
 
-        <section class="second-section section right">
+        <section
+          class="second-section section right"
+          aria-labelledby="works-heading"
+        >
           <div class="progress-wrapper progress-bar-wrapper-right">
             <div class="progress-bar"></div>
           </div>
 
           <div class="section-intro-wrapper-myworks">
-            <h1 class="section-title-myworks">
+            <h1 class="section-title-myworks" id="works-heading">
               <span class="section-title-text">My Works</span>
               <div class="section-title-decoration styleOne"></div>
               <div class="section-title-decoration styleTwo"></div>
@@ -129,7 +135,11 @@
             <!-- First Work -->
             <h3 class="section-heading">Campass</h3>
             <div class="section-boba-image-wrapper">
-              <video class="section-demo-video-campass" controls>
+              <video
+                class="section-demo-video-campass"
+                controls
+                aria-label="Campass demo video"
+              >
                 <source src="./images/campassDemo.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -158,30 +168,56 @@
               <div class="tool">Postman</div>
             </div>
 
-            <h3 class="section-heading">SnackHub</h3>
+            <!-- Third Work -->
+            <h3 class="section-heading">AutoTrip</h3>
             <div class="section-image-wrapper">
-              <!-- <div class="section-image-learn-more-button">
+              <div class="section-image-learn-more-button">
                 <a
-                  href="https://www.google.com/"
+                  href="https://autotripfrontend.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Learn More</a
                 >
               </div>
-
               <a
-                href="https://www.google.com/"
+                href="https://autotripfrontend.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img
-                  src="Updated.jpeg"
-                  alt="image of chatbot arena"
-                  class="section-image-snackHub"
-                />
-              </a> -->
+                  src="./images/AutoTrip.png"
+                  alt="image of AutoTrip"
+                  class="section-image-NLP"
+              /></a>
             </div>
+            <p class="section-text">
+              AutoTrip is an AI-powered travel planner that automates hotel,
+              route, and restaurant planning to generate personalized,
+              day-to-day itineraries. I built a full-stack architecture with a
+              Next.js, TailwindCSS, React Query, and Framer Motion frontend, and
+              a FastAPI backend using Pydantic for validation, deployed on
+              Vercel and Render. I developed a structured AI itinerary
+              generation system using LangChain and OpenAI, producing
+              budget-aware, route-optimized travel plans and ranking
+              recommendations through a custom engagement metric with around600
+              ms average API latency. I also implemented asynchronous RESTful
+              endpoints integrating Google Maps, Amadeus, Yelp, and Instagram
+              Graph APIs to deliver real-time, data-driven travel insights.
+            </p>
+            <div class="tools-wrapper">
+              <div class="tool">Next.js</div>
+              <div class="tool">TailwindCSS</div>
+              <div class="tool">React Query</div>
+              <div class="tool">Framer Motion</div>
+              <div class="tool">FastAPI</div>
+              <div class="tool">Pydantic</div>
+              <div class="tool">LangChain</div>
+              <div class="tool">Render</div>
+              <div class="tool">Vercel</div>
+            </div>
+
+            <h3 class="section-heading">SnackHub</h3>
 
             <p class="section-text">
               SnackHub is a gamified food ordering app designed to optimize
@@ -242,20 +278,6 @@
               <div class="tool">NumPy</div>
             </div>
 
-            <!-- Third Work -->
-            <h3 class="section-heading">Yelp Data Analysis</h3>
-
-            <p class="section-text">
-              Analyzed real-world Yelp data to uncover insights into business
-              attributes, user behavior, and review patterns. Developed queries
-              in PyMongo to filter businesses, aggregate reviews, and extract
-              nested fields from JSON-like documents for efficient analysis<br />
-            </p>
-            <div class="tools-wrapper">
-              <div class="tool">MongoDB</div>
-              <div class="tool">PyMongo</div>
-            </div>
-
             <!-- Fourth Work -->
             <h3 class="section-heading">Boba Time</h3>
             <div class="section-boba-image-wrapper">
@@ -265,7 +287,11 @@
                 class="section-image-boba"
               />
 
-              <video class="section-demo-video" controls>
+              <video
+                class="section-demo-video"
+                controls
+                aria-label="Boba Time demo video"
+              >
                 <source src="./images/BobaTime_demo.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -314,13 +340,16 @@
         <!-- third section -->
         <div class="third-move section-margin"></div>
 
-        <section class="third-section section left">
+        <section
+          class="third-section section left"
+          aria-labelledby="experience-heading"
+        >
           <div class="progress-wrapper progress-bar-wrapper-left">
             <div class="progress-bar"></div>
           </div>
 
           <div class="section-intro-wrapper">
-            <h1 class="section-title">
+            <h1 class="section-title" id="experience-heading">
               <span class="section-title-text">Experience</span>
               <div class="section-title-decoration styleOne"></div>
               <div class="section-title-decoration styleTwo"></div>
@@ -486,13 +515,16 @@
         <!-- fourth section -->
         <div class="fourth-move section-margin"></div>
 
-        <section class="fourth-section section right">
+        <section
+          class="fourth-section section right"
+          aria-labelledby="contact-heading"
+        >
           <div class="progress-wrapper progress-bar-wrapper-right">
             <div class="progress-bar"></div>
           </div>
 
           <div class="section-intro-wrapper">
-            <h1 class="section-title">
+            <h1 class="section-title" id="contact-heading">
               <span class="section-title-text">Contact Me</span>
               <div class="section-title-decoration styleOne"></div>
               <div class="section-title-decoration styleTwo"></div>
@@ -540,14 +572,14 @@
 
         <!-- last section -->
         <div class="last-move section-margin"></div>
-        <section class="last-move hero">
+        <footer class="last-move hero" role="contentinfo">
           <div class="hero-wrapper">
             <div class="hero-main">
               <h1 class="hero-main-title">BOSUNG.H</h1>
               <h2 class="hero-main-description">PORTFOLIO</h2>
             </div>
           </div>
-        </section>
+        </footer>
       </div>
     </div>
 

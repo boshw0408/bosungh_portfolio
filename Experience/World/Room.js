@@ -69,19 +69,23 @@ export default class Room {
 
         this.roomChildren["rectLight"] = rectLight;
 
-        // const rectLightHelper = new RectAreaLightHelper(rectLight);
-        // rectLight.add(rectLightHelper);
-        // console.log(this.room);
-
         this.scene.add(this.actualRoom);
         this.actualRoom.scale.set(0.24, 0.24, 0.24);
     }
 
     onMouseMove() {
+        let lastTime = 0;
+        const throttleTime = 16; // ~60fps
+        
         window.addEventListener("mousemove", (e) => {
-            this.rotation = ((e.clientX - window.innerWidth/2)*2)/window.innerWidth;
-            this.lerp.target = this.rotation*0.1;
-        })
+            const currentTime = Date.now();
+            
+            if (currentTime - lastTime >= throttleTime) {
+                this.rotation = ((e.clientX - window.innerWidth/2)*2)/window.innerWidth;
+                this.lerp.target = this.rotation*0.1;
+                lastTime = currentTime;
+            }
+        }, { passive: true });
     }
 
     resize() {}

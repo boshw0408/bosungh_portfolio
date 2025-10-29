@@ -39,13 +39,11 @@ a{
   --color-background-light: #a3b8d1;
   --color-yellow: #e7e4d6;
   --color-pink: #e8c2c3;
-
-  /* --color-background-dark: #5862a2; */
 }
 
 html, body{
   color: var(--color-text-light);
-  font-family: mainFont;
+  font-family: mainfont;
 }
 
 /* 3d model ------------------------------------------ */
@@ -80,7 +78,7 @@ html, body{
   height: 100vh;
   position: fixed;
   opacity: 1;
-  z-index: 99999999999999999;
+  z-index: 9999;
   letter-spacing: .15em;
 }
 
@@ -183,6 +181,11 @@ html, body{
 }
 
 .hero{
+  width: 100vw;
+  height: 100vh;
+}
+
+footer.hero{
   width: 100vw;
   height: 100vh;
 }
@@ -428,10 +431,6 @@ i{
 a:hover{
   cursor: pointer;
 }
-
-/* .section-image:hover{
-  filter: blur(2.5px); 
-} */
 
 .section-image-wrapper:hover .section-image-learn-more-button {
   opacity: 1;
