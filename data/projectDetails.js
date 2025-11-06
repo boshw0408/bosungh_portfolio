@@ -162,16 +162,15 @@ export const projectDetails = {
     sections: [
       {
         title: "Technical Implementation",
-        content: `• Built and refined frontend components with Next.js and TailwindCSS and impelemented optimistic UI updates for instant feedback
-• Extended server-side API endpoints in Python/FastAPI to handle vote submissions, parsing and validating JSON payloads
-• Implemented data sanitation and normalization logic (trimming, validation, consistent timestamp formatting) of JSON payloads to ensure integrity before insertion into PostgreSQL
+        content: `• Built and refined frontend components with Next.js/TailwindCSS and impelemented optimistic UI updates for instant feedback
+• Extended server-side API endpoints in Node.js/HonoJS to handle vote submissions, parsing and validating JSON payloads
 • Optimized backend performance by splitting synchronous and asynchronous writes, committing essential vote data immediately and batching non-critical metadata post-response to reduce latency
 • Collaborated with researchers and engineers through weekly syncs, GitHub Issues, and pull request reviews`
       },
       {
         title: "Impact",
         content: `• Enhanced user engagement by nearly 20%
-• Reduced API latency by by nearly 40%
+• Reduced API latency by nearly 30%
 • Contributed to a platform now used by researchers and organizations worldwide to evaluate and compare the latest large language models`
       }
     ],
