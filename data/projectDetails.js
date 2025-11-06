@@ -158,7 +158,7 @@ export const projectDetails = {
     role: "Full Stack Development",
     category: "experience",
     description: `Chatbot Arena is a large-scale benchmarking platform for language models, developed at UC Berkeley’s Sky Computing Lab. It uses an A/B testing framework where users compare two anonymous model responses to the same prompt and vote for the better one. These votes provide direct human preference data that power open, community-driven leaderboards for LLM research.`,
-    heroImage: "./images/lmarena.jpeg",
+    heroImage: "./images/lmArena_mainpage.png",
     sections: [
       {
         title: "Technical Implementation",
