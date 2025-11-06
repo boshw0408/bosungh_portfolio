@@ -71,17 +71,12 @@
             <h3 class="section-heading"></h3>
             <p class="section-text">
               Hi! <br />
-              My name is Bosung Hwang. <br />
-              I have plenty of experience in full stack development, as well as
-              app development experience for my startup company. My hobbies are
-              working out and playing basketball or badminton! I am always
-              looking to expand his network, so feel free to connect and send a
-              message! <br />
+              My name is Bosung Hwang.
             </p>
             <h3 class="section-heading">Education</h3>
             <p class="section-text">
               University of California, Berkeley <br />
-              Bachelor of Arts in Data Science, Senior <br />
+              Bachelors in Data Science <br />
               Expected Graduation Date: Dec 16, 2025 <br />
               Cumulative GPA: 3.71/4.00 <br />
             </p>
@@ -134,205 +129,93 @@
           <div class="section-detail-wrapper">
             <!-- First Work -->
             <h3 class="section-heading">Campass</h3>
-            <div class="section-boba-image-wrapper">
-              <video
-                class="section-demo-video-campass"
-                controls
-                aria-label="Campass demo video"
-              >
-                <source src="./images/campassDemo.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-
-            <p class="section-text">
-              Campass is a cross-platform campus discovery app that helps
-              students find and explore places in real time. I launched the MVP
-              with 25+ UC Berkeley students, building an API-driven ingestion
-              pipeline and a Firestore-backed REST layer aggregating data on
-              500+ campus locations. I integrated an AI-powered campus agent
-              with schema validation, OpenAI function-calling, and robust error
-              handling to support real-time Q&A. In preparation for expansion, I
-              positioned Campass for a multi-campus rollout through the UC
-              Berkeley SkyDeck 2025 cohort.
-            </p>
-            <div class="tools-wrapper">
-              <div class="tool">ReactNative</div>
-              <div class="tool">Typescript</div>
-              <div class="tool">Node.js</div>
-              <div class="tool">Express.js</div>
-              <div class="tool">FireBase</div>
-              <div class="tool">Render</div>
-              <div class="tool">Jest</div>
-              <div class="tool">Github Actions</div>
-              <div class="tool">Postman</div>
+            <div class="section-image-wrapper" data-project-id="campass">
+              <img
+                src="./images/CAMPASS_DEMO-1.png"
+                alt="Campass"
+                class="section-image section-image-campass clickable-image"
+                onclick="window.openDetailsPanel('campass', event)"
+              />
+              <div class="image-hover-overlay">
+                <div class="overlay-content">
+                  <p class="overlay-section-text">UCB Campus Discovery App</p>
+                  <div class="overlay-tools-wrapper"></div>
+                </div>
+              </div>
             </div>
 
             <!-- Third Work -->
             <h3 class="section-heading">AutoTrip</h3>
-            <div class="section-image-wrapper">
-              <div class="section-image-learn-more-button">
-                <a
-                  href="https://autotripfrontend.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Learn More</a
-                >
+            <div class="section-image-wrapper" data-project-id="autotrip">
+              <img
+                src="./images/AutoTrip.png"
+                alt="image of AutoTrip"
+                class="section-image clickable-image"
+                onclick="window.openDetailsPanel('autotrip', event)"
+              />
+              <div class="image-hover-overlay">
+                <div class="overlay-content">
+                  <p class="overlay-section-text">AI-powered travel planner</p>
+                  <div class="overlay-tools-wrapper"></div>
+                </div>
               </div>
-              <a
-                href="https://autotripfrontend.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./images/AutoTrip.png"
-                  alt="image of AutoTrip"
-                  class="section-image-NLP"
-              /></a>
-            </div>
-            <p class="section-text">
-              AutoTrip is an AI-powered travel planner that automates hotel,
-              route, and restaurant planning to generate personalized,
-              day-to-day itineraries. I built a full-stack architecture with a
-              Next.js, TailwindCSS, React Query, and Framer Motion frontend, and
-              a FastAPI backend using Pydantic for validation, deployed on
-              Vercel and Render. I developed a structured AI itinerary
-              generation system using LangChain and OpenAI, producing
-              budget-aware, route-optimized travel plans and ranking
-              recommendations through a custom engagement metric with around600
-              ms average API latency. I also implemented asynchronous RESTful
-              endpoints integrating Google Maps, Amadeus, Yelp, and Instagram
-              Graph APIs to deliver real-time, data-driven travel insights.
-            </p>
-            <div class="tools-wrapper">
-              <div class="tool">Next.js</div>
-              <div class="tool">TailwindCSS</div>
-              <div class="tool">React Query</div>
-              <div class="tool">Framer Motion</div>
-              <div class="tool">FastAPI</div>
-              <div class="tool">Pydantic</div>
-              <div class="tool">LangChain</div>
-              <div class="tool">Render</div>
-              <div class="tool">Vercel</div>
             </div>
 
+            <!-- Third Work -->
             <h3 class="section-heading">SnackHub</h3>
-
-            <p class="section-text">
-              SnackHub is a gamified food ordering app designed to optimize
-              cooking operations for small businesses while making the customer
-              ordering experience more engaging through gamified and social
-              features. Qualified for the Naver D2 Startup Factory First Round,
-              I led a 3-person team to build core functionalities including a
-              reward-based ordering system, interactive UI, and personalized
-              restaurant recommendations. I developed REST APIs on Google App
-              Engine to manage user data and order flows, and piloted the app
-              with a local restaurant, gathering feedback that led to a 60%
-              improvement in user experience.<br />
-            </p>
-            <div class="tools-wrapper">
-              <div class="tool">ReactNative</div>
-              <div class="tool">Node.js</div>
-              <div class="tool">Express.js</div>
-              <div class="tool">Google App Engine</div>
+            <div class="section-image-wrapper" data-project-id="snackhub">
+              <img
+                src="./images/snackhub_logo.png"
+                alt="image of SnackHub logo"
+                class="section-image section-image-contain clickable-image"
+                onclick="window.openDetailsPanel('snackhub', event)"
+              />
+              <div class="image-hover-overlay">
+                <div class="overlay-content">
+                  <p class="overlay-section-text">Gamified food ordering App</p>
+                  <div class="overlay-tools-wrapper"></div>
+                </div>
+              </div>
             </div>
 
             <!-- Second Work -->
             <h3 class="section-heading">
               Wikipedia Talk-Page Comment Classification
             </h3>
-            <div class="section-image-wrapper">
-              <div class="section-image-learn-more-button">
-                <a
-                  href="./images/NLP.png"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Learn More</a
-                >
+            <div class="section-image-wrapper" data-project-id="wikipedia_nlp">
+              <img
+                src="./images/NLP.png"
+                alt="image of NLP"
+                class="section-image clickable-image"
+                onclick="window.openDetailsPanel('wikipedia_nlp', event)"
+              />
+              <div class="image-hover-overlay">
+                <div class="overlay-content">
+                  <p class="overlay-section-text">
+                    NLP model to categorize editorial feedback on Wikipedia
+                  </p>
+                  <div class="overlay-tools-wrapper"></div>
+                </div>
               </div>
-              <a
-                href="./images/NLP.png"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./images/NLP.png"
-                  alt="image of NLP"
-                  class="section-image-NLP"
-              /></a>
-            </div>
-
-            <p class="section-text">
-              Built an end-to-end NLP pipeline to categorize editorial feedback
-              on Wikipedia talk-page comments into three tiers: minor edits,
-              moderate suggestions, and major disputes. Fine-tuned a BERT model
-              in PyTorch, achieving 87% test accuracy and outperforming baseline
-              methods by 22%<br />
-            </p>
-            <div class="tools-wrapper">
-              <div class="tool">PyTorch</div>
-              <div class="tool">NLTK</div>
-              <div class="tool">Scikit-learn</div>
-              <div class="tool">NumPy</div>
             </div>
 
             <!-- Fourth Work -->
             <h3 class="section-heading">Boba Time</h3>
-            <div class="section-boba-image-wrapper">
+            <div class="section-image-wrapper" data-project-id="bobatime">
               <img
-                src="./images/BobaTime_demo.jpeg"
-                alt="image of BobaTime homescreen"
-                class="section-image-boba"
+                src="./images/appicon.png"
+                alt="image of BobaTime app icon"
+                class="section-image-boba clickable-image"
+                onclick="window.openDetailsPanel('bobatime', event)"
               />
-
-              <video
-                class="section-demo-video"
-                controls
-                aria-label="Boba Time demo video"
-              >
-                <source src="./images/BobaTime_demo.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-
-            <p class="section-text">
-              Boba Time is an iOS application developed using Swift and
-              SwiftUI/UX. The app features an engaging series of quizzes that
-              utilize a custom algorithm to recommend a personalized boba drink.
-              Users can save their favorite boba selections to a remote database
-              powered by Firebase. The application was recognized as the winner
-              of the UC Berkeley Cubstart App Competition.
-            </p>
-            <div class="tools-wrapper">
-              <div class="tool">Swift</div>
-              <div class="tool">SwiftUI/UX</div>
-              <div class="tool">FireBase</div>
-            </div>
-
-            <!-- Fifth Work -->
-            <h3 class="section-heading">
-              Ehyun Elementary School English Musical Website
-            </h3>
-            <div class="section-image-wrapper">
-              <img
-                src="./images/ehun_website.png"
-                alt="image of ehun website"
-                class="section-image"
-              />
-            </div>
-
-            <p class="section-text">
-              Ehyun Elementary School's English Musical Club is a state funded
-              club that has 50+ members every semester. I built the club’s first
-              official website using a variety of modern tools and libraries to
-              support the club’s activities and showcase its work.
-            </p>
-            <div class="tools-wrapper">
-              <div class="tool">HTML/CSS</div>
-              <div class="tool">Javascript</div>
-              <div class="tool">React</div>
+              <div class="image-hover-overlay">
+                <div class="overlay-content">
+                  <p class="overlay-section-text">
+                    iOS app that recommend personalized boba drinks
+                  </p>
+                  <div class="overlay-tools-wrapper"></div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -361,155 +244,107 @@
             <!-- First Exp -->
             <h3 class="section-heading">Software Engineering Intern</h3>
             <h4>NoteBar, NY</h4>
-            <div class="section-image-wrapper">
-              <div class="section-image-learn-more-button">
-                <a
-                  href="https://okny.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Learn More
-                </a>
+            <div class="section-image-wrapper" data-project-id="notebar">
+              <img
+                src="./images/notebar-primary.jpg"
+                alt="image of NoteBar Logo"
+                class="section-image clickable-image"
+                onclick="window.openDetailsPanel('notebar', event)"
+              />
+              <div class="image-hover-overlay">
+                <div class="overlay-content">
+                  <p class="overlay-section-text">
+                    Full Stack & ML Development
+                  </p>
+                  <div class="overlay-tools-wrapper"></div>
+                </div>
               </div>
-              <a
-                href="https://okny.io/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./images/notebar-primary-cropped.jpg"
-                  alt="image of LMArena Logo"
-                  class="section-image"
-                />
-              </a>
-            </div>
-            <h5>Full Stack & ML Development</h5>
-            <p class="section-text">
-              I worked across the frontend and backend to improve the
-              reliability and user experience of the platform. On the frontend,
-              I built responsive UIs with React, TypeScript, and TailwindCSS,
-              including authentication, navigation, and note composition flows
-              for a clean, professional interface. On the backend, I developed
-              FastAPI services on Google Cloud Run to integrate our ML
-              concept-classifier and designed a Firestore → Pinecone → frontend
-              pipeline that made new notes searchable in real time with average
-              latency of under 900ms. I also worked within a Dockerized
-              environment and extended the existing CI/CD pipeline with GitHub
-              Actions to automatically retrain and redeploy our ML
-              classifiers.<br />
-            </p>
-            <div class="tools-wrapper">
-              <div class="tool">React</div>
-              <div class="tool">TypeScript</div>
-              <div class="tool">TailwindCSS</div>
-              <div class="tool">Python</div>
-              <div class="tool">Google Cloud Run</div>
-              <div class="tool">Pinecone</div>
-              <div class="tool">Firebase</div>
-              <div class="tool">GitHub Actions</div>
-              <div class="tool">Docker</div>
-              <div class="tool">Fast API</div>
             </div>
 
             <!-- Second Exp -->
             <h3 class="section-heading">Research Assistant</h3>
             <h4>Sky Computing Lab, Berkeley,CA</h4>
-            <div class="section-image-wrapper">
-              <div class="section-image-learn-more-button">
-                <a
-                  href="https://lmarena.ai/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Learn More
-                </a>
+            <div
+              class="section-image-wrapper"
+              data-project-id="sky_computing_lab"
+            >
+              <img
+                src="./images/lmarena.jpeg"
+                alt="image of LMArena Logo"
+                class="section-image clickable-image"
+                onclick="window.openDetailsPanel('sky_computing_lab', event)"
+              />
+              <div class="image-hover-overlay">
+                <div class="overlay-content">
+                  <p class="overlay-section-text">Full Stack Development</p>
+                  <div class="overlay-tools-wrapper"></div>
+                </div>
               </div>
-              <a
-                href="https://lmarena.ai/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./images/lmarena.jpeg"
-                  alt="image of LMArena Logo"
-                  class="section-image"
-                />
-              </a>
-            </div>
-            <h5>Full Stack Development</h5>
-            <p class="section-text">
-              I contributed to the development of Chatbot Arena by implementing
-              backend optimizations and improving the UI/UX, which enhanced user
-              engagement by 20%. I also supported the Arena-Hard benchmarking
-              pipeline by integrating backend LLM evaluations with frontend
-              components to enable real-time comparisons. In addition, I
-              developed data collection APIs and incorporated user interaction
-              metrics into a live benchmarking dashboard built with Next.js.
-              Throughout the project, I conducted design and code reviews and
-              debugged performance issues across API endpoints to ensure
-              reliability and efficiency.<br />
-            </p>
-            <div class="tools-wrapper">
-              <div class="tool">Next.js</div>
-              <div class="tool">Postgres</div>
-              <div class="tool">Tailwind</div>
-              <div class="tool">ShadCN</div>
-              <div class="tool">Hono</div>
             </div>
 
             <!-- Third Exp -->
             <h3 class="section-heading">Software Engineering Intern</h3>
             <h4>Karrot, South Korea</h4>
-            <div class="section-image-wrapper">
+            <div class="section-image-wrapper" data-project-id="karrot">
               <img
                 src="./images/karrot.png"
                 alt="image of ehun website"
-                class="section-image"
+                class="section-image clickable-image"
+                onclick="window.openDetailsPanel('karrot', event)"
               />
-            </div>
-            <h5>Search & Discovery Team</h5>
-            <p class="section-text">
-              I extended SQL-backed API endpoints to retrieve user interaction
-              data for search and filter features, improving data delivery
-              efficiency on internal tools by over 30%. I also analyzed more
-              than one million activity logs to identify user behavior patterns
-              that informed personalization models. In addition, I contributed
-              to frontend development by fixing layout issues and refining
-              styling for the new Karrot homepage prototype.<br />
-            </p>
-            <div class="tools-wrapper">
-              <div class="tool">Python</div>
-              <div class="tool">SQL</div>
-              <div class="tool">Node.js</div>
-              <div class="tool">Express.js</div>
-              <div class="tool">Docker</div>
-              <div class="tool">Kubernetes</div>
+              <div class="image-hover-overlay">
+                <div class="overlay-content">
+                  <p class="overlay-section-text">Search & Discovery Team</p>
+                  <div class="overlay-tools-wrapper"></div>
+                </div>
+              </div>
             </div>
 
             <!-- Fourth Exp -->
             <h3 class="section-heading">Data Science Internship</h3>
             <h4>San Diego County Taxpayers Association</h4>
-            <p class="section-text">
-              I automated the extraction of public expenditure data from
-              government websites, which significantly reduced manual effort. I
-              also created reports on housing, taxation, and budget allocation
-              to support data-driven policy recommendations.<br />
-            </p>
-            <div class="tools-wrapper">
-              <div class="tool">Requests</div>
-              <div class="tool">BeautifulSoup</div>
-              <div class="tool">Pandas</div>
-              <div class="tool">Seaborn</div>
+
+            <div
+              class="section-image-wrapper"
+              data-project-id="san_diego_county"
+            >
+              <img
+                src="./images/SD-County-Taxpayers-Assn-logo.png"
+                alt="image of San Diego County Taxpayers Association logo"
+                class="section-image clickable-image"
+                onclick="window.openDetailsPanel('san_diego_county', event)"
+              />
+              <div class="image-hover-overlay">
+                <div class="overlay-content">
+                  <p class="overlay-section-text">Data Engineering Team</p>
+                  <div class="overlay-tools-wrapper"></div>
+                </div>
+              </div>
             </div>
 
             <!-- Fifth Exp -->
             <h3 class="section-heading">Undergraduate Course Staﬀ/Tutor</h3>
             <h4>UC Berkeley, CA</h4>
-            <h5>Principles & Techniques of Data Science (Data 100)</h5>
-            <p class="section-text">
-              I led weekly discussion sections with 30+ students and held oﬃce
-              hours and group tutoring sessions<br />
-            </p>
+
+            <div
+              class="section-image-wrapper"
+              data-project-id="uc_berkeley_tutor"
+            >
+              <img
+                src="./images/CDSS.jpeg"
+                alt="image of CDSS logo"
+                class="section-image clickable-image"
+                onclick="window.openDetailsPanel('uc_berkeley_tutor', event)"
+              />
+              <div class="image-hover-overlay">
+                <div class="overlay-content">
+                  <p class="overlay-section-text">
+                    Principles & Techniques of Data Science (Data 100)
+                  </p>
+                  <div class="overlay-tools-wrapper"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
         <!-- fourth section -->
