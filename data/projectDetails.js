@@ -163,7 +163,7 @@ export const projectDetails = {
       {
         title: "Technical Implementation",
         content: `• Built and refined frontend components with Next.js/TailwindCSS and impelemented optimistic UI updates for instant feedback
-• Extended server-side API endpoints in Node.js/HonoJS to handle vote submissions, parsing and validating JSON payloads
+• Integrated data collection APIs with PostgreSQL and connected user interaction metrics to a live Next.js dashboard
 • Optimized backend performance by splitting synchronous and asynchronous writes, committing essential vote data immediately and batching non-critical metadata post-response to reduce latency
 • Collaborated with researchers and engineers through weekly syncs, GitHub Issues, and pull request reviews`
       },
