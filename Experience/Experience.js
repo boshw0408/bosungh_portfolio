@@ -16,27 +16,22 @@ export default class Experience {
         }
         Experience.instance = this;
         this.canvas = canvas;
-        
-        try {
-            this.scene = new THREE.Scene();
-            this.time = new Time();
-            this.sizes = new Sizes();
-            this.camera = new Camera();
-            this.renderer = new Renderer();
-            this.resources = new Resources(assets);
-            this.world = new World();
-            this.preloader = new Preloader();
 
-            this.sizes.on("resize", () => {
-                this.resize();
-            });
-            this.time.on("update", () => {
-                this.update();
-            });
-        } catch (error) {
-            console.error("Error initializing Experience:", error);
-            throw error;
-        }
+        this.scene = new THREE.Scene();
+        this.time = new Time();
+        this.sizes = new Sizes();
+        this.camera = new Camera();
+        this.renderer = new Renderer();
+        this.resources = new Resources(assets);
+        this.world = new World();
+        this.preloader = new Preloader();
+
+        this.sizes.on("resize", () => {
+            this.resize();
+        });
+        this.time.on("update", () => {
+            this.update();
+        });
     }
 
     resize() {

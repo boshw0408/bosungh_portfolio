@@ -191,60 +191,29 @@ class DetailsPanel {
       html += '</div>';
     }
     
-    // 4. Technical Implementation section (look for this specific section) - formatted as bullets
-    if (details.sections && details.sections.length > 0) {
-      const technicalSection = details.sections.find(s => 
-        s.title.toLowerCase().includes('technical') || 
-        s.title.toLowerCase().includes('implementation') ||
-        s.title === 'Technical Implementation'
-      );
-      
-      if (technicalSection) {
-        html += '<div class="details-section">';
-        html += `<h3 class="details-section-title">Technical Implementation</h3>`;
-        // Split by sentences and create bullet points
-        const bulletPoints = this.formatAsBulletPoints(technicalSection.content);
-        html += `<div class="details-section-content details-bullets">${bulletPoints}</div>`;
-        html += '</div>';
-      }
+    // 4-5. Technical Implementation and Impact as bullet lists, then any other sections
+    const sections = details.sections || [];
+    const isTechnical = (s) => /technical|implementation/i.test(s.title);
+    const isImpact = (s) => /impact/i.test(s.title);
+    const renderSection = (title, contentClass, body) =>
+      `<div class="details-section"><h3 class="details-section-title">${title}</h3><div class="${contentClass}">${body}</div></div>`;
+
+    const technicalSection = sections.find(isTechnical);
+    if (technicalSection) {
+      html += renderSection('Technical Implementation', 'details-section-content details-bullets', this.formatAsBulletPoints(technicalSection.content));
     }
-    
-    // 5. Impact section (look for this specific section) - formatted as bullets
-    if (details.sections && details.sections.length > 0) {
-      const impactSection = details.sections.find(s => 
-        s.title.toLowerCase().includes('impact') ||
-        s.title === 'Impact'
-      );
-      
-      if (impactSection) {
-        html += '<div class="details-section">';
-        html += `<h3 class="details-section-title">Impact</h3>`;
-        // Split by sentences and create bullet points
-        const bulletPoints = this.formatAsBulletPoints(impactSection.content);
-        html += `<div class="details-section-content details-bullets">${bulletPoints}</div>`;
-        html += '</div>';
-      }
+
+    const impactSection = sections.find(isImpact);
+    if (impactSection) {
+      html += renderSection('Impact', 'details-section-content details-bullets', this.formatAsBulletPoints(impactSection.content));
     }
-    
-    // Other sections (excluding Technical Implementation and Impact which we already rendered)
-    if (details.sections && details.sections.length > 0) {
-      const otherSections = details.sections.filter(s => {
-        const title = s.title.toLowerCase();
-        return !title.includes('technical') && 
-               !title.includes('implementation') && 
-               !title.includes('impact') &&
-               s.title !== 'Technical Implementation' &&
-               s.title !== 'Impact';
+
+    sections
+      .filter((s) => !isTechnical(s) && !isImpact(s))
+      .forEach((section) => {
+        html += renderSection(section.title, 'details-section-content', section.content.replace(/\n/g, '<br>'));
       });
-      
-      otherSections.forEach(section => {
-        html += '<div class="details-section">';
-        html += `<h3 class="details-section-title">${section.title}</h3>`;
-        html += `<div class="details-section-content">${section.content.replace(/\n/g, '<br>')}</div>`;
-        html += '</div>';
-      });
-    }
-    
+
     // Image gallery (excluding hero image if it's in the images array)
     if (details.images && details.images.length > 0) {
       const galleryImages = details.images.filter(img => img !== details.heroImage);

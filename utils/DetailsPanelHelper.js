@@ -5,9 +5,6 @@
 
 import { openDetails } from './DetailsPanel.js';
 
-// Export to make it available globally
-export { openDetails };
-
 /**
  * Open details panel with automatic slide direction detection
  * @param {string} projectId - The ID of the project/experience

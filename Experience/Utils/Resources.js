@@ -28,6 +28,9 @@ export default class Resources extends EventEmitter {
         this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader);
     }
     startLoading() {
+        this.video = {};
+        this.videoTexture = {};
+
         for (const asset of this.assets) {
             if (asset.type === "glbModel") {
                 this.loaders.gltfLoader.load(
@@ -41,9 +44,6 @@ export default class Resources extends EventEmitter {
                     }
                 );
             } else if (asset.type === "videoTexture") {
-                this.video = {};
-                this.videoTexture = {};
-
                 this.video[asset.name] = document.createElement("video");
                 this.video[asset.name].src = asset.path;
                 this.video[asset.name].muted = true;

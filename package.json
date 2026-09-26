@@ -1,5 +1,5 @@
 {
-  "name": "gr_portfolio",
+  "name": "bosungh-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,12 +9,12 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "gsap": "^3.11.4",
     "vite": "^4.0.0"
   },
   "dependencies": {
     "@ashthornton/asscroll": "^2.0.11",
     "events": "^3.3.0",
+    "gsap": "^3.11.4",
     "three": "^0.148.0"
   }
 }
