@@ -10,7 +10,6 @@ class DetailsPanel {
     this.panel = null;
     this.overlay = null;
     this.currentSlideDirection = null;
-    this.asscrollInstance = null;
     this.init();
   }
 
@@ -80,28 +79,7 @@ class DetailsPanel {
     // Set slide direction class
     this.panel.className = `details-panel details-panel-${slideDirection}`;
     this.overlay.classList.add('active');
-    
-    // Store the scroll position if needed
-    const pageWrapper = document.querySelector('.page-wrapper');
-    if (pageWrapper) {
-      this.scrollPosition = window.pageYOffset || pageWrapper.scrollTop || 0;
-    }
-    
-    // Disable ASScroll by finding the Controls instance through Experience
-    // ASScroll might be interfering with native scrolling
-    try {
-      const experienceEl = document.querySelector('.experience-canvas');
-      if (experienceEl && experienceEl.experienceInstance) {
-        const controls = experienceEl.experienceInstance.world?.controls;
-        if (controls && controls.asscroll && controls.asscroll.disable) {
-          this.asscrollInstance = controls.asscroll;
-          this.asscrollInstance.disable();
-        }
-      }
-    } catch (e) {
-      console.log('Could not access ASScroll instance:', e);
-    }
-    
+
     // Trigger slide animation
     requestAnimationFrame(() => {
       this.panel.classList.add('active');
@@ -128,14 +106,7 @@ class DetailsPanel {
     if (pageElement) {
       pageElement.style.pointerEvents = '';
     }
-    
-    // Re-enable ASScroll if it was disabled
-    if (this.asscrollInstance && this.asscrollInstance.enable) {
-      setTimeout(() => {
-        this.asscrollInstance.enable();
-      }, 300);
-    }
-    
+
     // Wait for animation to complete before removing overlay
     setTimeout(() => {
       this.overlay.classList.remove('active');

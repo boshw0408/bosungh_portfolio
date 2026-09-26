@@ -500,14 +500,6 @@ a:hover{
 }
 
 /* Project/Experience Action Buttons */
-.project-buttons {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-.btn-learn-more,
 .btn-website {
   padding: 10px 20px;
   font-size: 16px;
@@ -520,13 +512,11 @@ a:hover{
   transition: all 0.3s ease;
 }
 
-.btn-learn-more:hover,
 .btn-website:hover {
   background-color: var(--color-text-light);
   color: var(--color-background-light);
 }
 
-.btn-learn-more:active,
 .btn-website:active {
   transform: scale(0.98);
 }
@@ -654,7 +644,7 @@ a:hover{
   transform: rotate(90deg);
 }
 
-/* Panel Content Styles (reuse from details.html) */
+/* Panel Content Styles */
 .details-panel .details-header {
   margin-bottom: 40px;
   padding-bottom: 20px;

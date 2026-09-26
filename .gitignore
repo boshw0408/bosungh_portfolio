@@ -1,3 +1,18 @@
+# Dependencies
+node_modules
 
-public/vite.svg
+# Build output (Vercel builds from source)
+dist
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local env files
+.env
+*.local
+
+# OS / editor
 .DS_Store
+.vscode
+.idea

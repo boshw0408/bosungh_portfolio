@@ -41,7 +41,7 @@ export default class Preloader extends EventEmitter {
                 delay: 0.2,
                 scale: 0,
                 onComplete: () =>{
-                    document.querySelector(".preloader").classList.add(".hidden");
+                    document.querySelector(".preloader").classList.add("hidden");
                 }
             })
 

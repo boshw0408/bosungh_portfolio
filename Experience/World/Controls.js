@@ -1,4 +1,3 @@
-import * as THREE from "three";
 import Experience from "../Experience.js";
 import GSAP from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
@@ -22,11 +21,6 @@ export default class Controls {
 
         this.setSmoothScroll();
         this.setScrollTrigger();
-        // this.room.children.forEach((child) => {
-        //     if (child.type === "RectAreaLight") {
-        //         this.rectLight = child;
-        //     }
-        // });
     }
 
     setupASScroll() {
@@ -224,11 +218,6 @@ export default class Controls {
                     );
                     
                     
-            },
-            
-            // Mobile
-            "(max-width: 968px)": () => {
-                console.log("fired mobile");
             },
 
             // all

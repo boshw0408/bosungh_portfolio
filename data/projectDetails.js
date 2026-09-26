@@ -41,8 +41,8 @@ export const projectDetails = {
     title: "AutoTrip",
     category: "work",
     description: `AutoTrip is an AI-powered travel planner that automates hotel selection, route planning, and restaurant recommendations to generate personalized, day-by-day itineraries. Users enter basic details such as dates, budget, group size, and interests, and AutoTrip finds optimal routes, recommends hotels at logical stopping points, and surfaces popular attractions and restaurants along the way. It then organizes everything into a complete itinerary with cost estimates, travel times, maps, and suggested stops, which could be all exportable as a PDF or synced to a calendar.`,
-    heroVideo: "./images/AtuoTrip_demo.mp4",
-    videos: ["./images/AtuoTrip_demo.mp4"],
+    heroVideo: "./images/AutoTrip_demo.mp4",
+    videos: ["./images/AutoTrip_demo.mp4"],
     sections: [
       {
         title: "Technical Implementation",
