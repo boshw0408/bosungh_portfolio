@@ -200,27 +200,6 @@ export const projectDetails = {
     tools: ["S3", "EC2", "EKS", "DynamoDB", "CloudWatch", "Python", "Docker", "Kubernetes"],
     websiteUrl: "https://www.karrotmarket.com/"
   },
-  san_diego_county: {
-    title: "Data Science Internship",
-    company: "San Diego County Taxpayers Association",
-    category: "experience",
-    description: `The San Diego County Taxpayers Association® is a non-profit, non-partisan organization, dedicated to promoting accountable, cost-effective and efficient government and opposing unnecessary taxes and fees.`,
-    heroImage: "./images/SD-County-Taxpayers-Assn-logo.png",
-    sections: [
-      {
-        title: "Technical Implementation",
-        content: `• Automated the extraction of public expenditure data from government websites using web scraping techniques with Python libraries including Requests and BeautifulSoup
-• Analyzed data with Pandas and created visualizations using Seaborn to communicate findings effectively`
-      },
-      {
-        title: "Impact",
-        content: `• Significantly reduced manual data collection effort, allowing the organization to focus on analysis and insights
-• Created comprehensive reports analyzing housing trends, taxation patterns, and budget allocations that provided data-driven insights to support policy recommendations and informed decision-making for the San Diego County Taxpayers Association`
-      }
-    ],
-    tools: ["Requests", "BeautifulSoup", "Pandas", "Seaborn"],
-    websiteUrl: "https://www.sdcta.org/"
-  },
   uc_berkeley_tutor: {
     title: "Undergraduate Course Staff/Tutor",
     company: "UC Berkeley, CA",
