@@ -7,6 +7,7 @@ import Environment from "./Environment.js";
 import Neon from "./Neon.js";
 import Fans from "./Fans.js";
 import Dust from "./Dust.js";
+import ScreenShowcase from "./ScreenShowcase.js";
 import { EventEmitter } from "events";
 
 export default class World extends EventEmitter{
@@ -27,6 +28,7 @@ export default class World extends EventEmitter{
             this.neon = new Neon();
             this.fans = new Fans();
             this.dust = new Dust();
+            this.screenShowcase = new ScreenShowcase();
             
             this.emit("worldready");
         });
@@ -36,6 +38,8 @@ export default class World extends EventEmitter{
     onIntroComplete() {
         this.neon.turnOn();
         this.dust.show();
+        this.controls.measureFrames();
+        this.screenShowcase.enable();
     }
 
     resize() {
