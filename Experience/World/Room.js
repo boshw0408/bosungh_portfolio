@@ -2,6 +2,14 @@ import * as THREE from "three";
 import Experience from "../Experience.js";
 import GSAP from "gsap";
 
+// How far the room turns toward the mouse, in radians at the screen edge.
+const TILT_Y = 0.1;
+const TILT_X = 0.05;
+// Idle float: height in world units and speed in radians per millisecond
+// (about one bob every five seconds).
+const FLOAT_AMPLITUDE = 0.03;
+const FLOAT_SPEED = 0.0012;
+
 export default class Room {
     constructor() {
         this.experience = new Experience();
@@ -17,6 +25,12 @@ export default class Room {
             target: 0,
             ease: 0.1,
         };
+        this.lerpX = {
+            current: 0,
+            target: 0,
+            ease: 0.1,
+        };
+        this.floatOffset = 0;
 
         this.setModel();
         this.onMouseMove();
@@ -81,7 +95,9 @@ export default class Room {
             
             if (currentTime - lastTime >= throttleTime) {
                 this.rotation = ((e.clientX - window.innerWidth/2)*2)/window.innerWidth;
-                this.lerp.target = this.rotation*0.1;
+                this.lerp.target = this.rotation * TILT_Y;
+                const vertical = ((e.clientY - window.innerHeight/2)*2)/window.innerHeight;
+                this.lerpX.target = vertical * TILT_X;
                 lastTime = currentTime;
             }
         }, { passive: true });
@@ -97,5 +113,18 @@ export default class Room {
         );
 
         this.actualRoom.rotation.y = this.lerp.current;
+
+        this.lerpX.current = GSAP.utils.interpolate(
+            this.lerpX.current,
+            this.lerpX.target,
+            this.lerpX.ease
+        );
+        this.actualRoom.rotation.x = this.lerpX.current;
+
+        // The scroll animations in Controls.js also move the room, so the
+        // float is applied as a change from last frame instead of setting y.
+        const float = Math.sin(this.time.elapsed * FLOAT_SPEED) * FLOAT_AMPLITUDE;
+        this.actualRoom.position.y += float - this.floatOffset;
+        this.floatOffset = float;
     }
 }

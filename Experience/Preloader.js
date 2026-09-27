@@ -205,5 +205,6 @@ export default class Preloader extends EventEmitter {
     async playIntro() {
         await this.playIntroAnimation();
         this.addVideo();
+        this.world.onIntroComplete();
     }
 }

@@ -127,15 +127,16 @@ export default class Bloom {
         }
 
         const emissive = material.emissive;
-        if (emissive && material.emissiveIntensity > 0 && emissive.getHex() !== 0) {
+        if (emissive && emissive.getHex() !== 0 && "neonLevel" in material.userData) {
             let glow = this.glowMaterials.get(mesh);
             if (!glow) {
-                glow = new THREE.MeshBasicMaterial({
-                    color: emissive.clone().multiplyScalar(NEON_GLOW),
-                    toneMapped: false,
-                });
+                glow = new THREE.MeshBasicMaterial({ toneMapped: false });
                 this.glowMaterials.set(mesh, glow);
             }
+            // Neon.js dims and flickers the sign; the glow follows it.
+            glow.color
+                .copy(emissive)
+                .multiplyScalar(NEON_GLOW * material.userData.neonLevel);
             return glow;
         }
 
