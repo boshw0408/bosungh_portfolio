@@ -1,6 +1,8 @@
 import * as THREE from "three";
 import GSAP from "gsap";
 import Experience from "../Experience.js";
+import { needsRecompile } from "../Bloom.js";
+import { projectDetails } from "../../data/projectDetails.js";
 
 // The big monitor on the left of the desk shows hovered projects and is
 // blank otherwise. Its original code screenshot moves to the monitor on the
@@ -8,7 +10,8 @@ import Experience from "../Experience.js";
 const PROJECT_MONITOR = "Material.106";
 const CODE_MONITOR = "Material.105";
 
-// Hovering a card on the page shows its image on a screen in the room.
+// Hovering a card on the page shows it on a screen in the room: its
+// screenVideo from data/projectDetails.js if it has one, otherwise its image.
 const SHOWCASES = [
     {
         // "My Works" projects go on the project monitor.
@@ -28,6 +31,10 @@ const SHOWCASES = [
 const RESTORE_DELAY_MS = 150;
 // Width of the canvas each card image is drawn onto.
 const TEXTURE_WIDTH = 1024;
+// Card media are mostly bright web pages and app screens, so they skip the
+// scene's exposure boost and don't glow: bloom spread over a big bright
+// screen washes the whole picture out.
+const CARD_GLOW = 0;
 
 export default class ScreenShowcase {
     constructor() {
@@ -35,14 +42,19 @@ export default class ScreenShowcase {
         this.room = this.experience.world.room;
         this.loader = new THREE.ImageLoader();
         this.screens = [];
+        this.clips = new Map();
         this.blank = createBlankTexture();
 
         this.setUpDesk();
 
         SHOWCASES.forEach((showcase, index) => {
             document.querySelectorAll(showcase.cards).forEach((card) => {
-                const src = card.querySelector("img").getAttribute("src");
-                card.addEventListener("mouseenter", () => this.show(index, src));
+                const details = projectDetails[card.dataset.projectId] || {};
+                const media = {
+                    image: card.querySelector("img").getAttribute("src"),
+                    video: details.screenVideo,
+                };
+                card.addEventListener("mouseenter", () => this.show(index, media));
                 card.addEventListener("mouseleave", () => this.scheduleRestore(index));
             });
         });
@@ -65,20 +77,40 @@ export default class ScreenShowcase {
             return {
                 mesh,
                 original: idle,
+                originalToneMapped: mesh.material.toneMapped,
                 aspect: screenAspect(mesh),
                 textures: new Map(),
                 hovered: null,
                 restoreTimer: null,
+                playing: null,
             };
         });
     }
 
-    show(index, src) {
+    show(index, media) {
         const screen = this.screens[index];
         if (!screen) return;
         clearTimeout(screen.restoreTimer);
-        screen.hovered = src;
+        screen.hovered = media;
+        this.stopVideo(screen);
 
+        if (media.video) {
+            const clip = this.getClip(media.video);
+            screen.playing = clip;
+            clip.video.play().catch(() => {});
+            if (clip.ready) {
+                this.apply(screen, clip.texture);
+                return;
+            }
+            // Show the still image until the video has a frame to show.
+            clip.onReady = () => {
+                if (screen.hovered === media) this.apply(screen, clip.texture, false);
+            };
+        }
+        this.showImage(screen, media.image);
+    }
+
+    showImage(screen, src) {
         const cached = screen.textures.get(src);
         if (cached) {
             this.apply(screen, cached);
@@ -87,8 +119,49 @@ export default class ScreenShowcase {
         this.loader.load(src, (image) => {
             const texture = this.createTexture(image, screen.aspect);
             screen.textures.set(src, texture);
-            if (screen.hovered === src) this.apply(screen, texture);
+            // Skip it if the card was left, or its video already started.
+            const current = screen.hovered;
+            const videoShowing = screen.playing && screen.playing.ready;
+            if (current && current.image === src && !videoShowing) {
+                this.apply(screen, texture);
+            }
         });
+    }
+
+    // One muted, looping <video> per clip, created on first hover so clips
+    // only download when someone looks at them. The files are encoded at
+    // each screen's shape, so they map straight onto it without cropping.
+    getClip(src) {
+        let clip = this.clips.get(src);
+        if (clip) return clip;
+
+        const video = document.createElement("video");
+        video.src = src;
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.preload = "auto";
+
+        const texture = new THREE.VideoTexture(video);
+        // glTF UVs expect textures that aren't flipped.
+        texture.flipY = false;
+        texture.encoding = THREE.sRGBEncoding;
+
+        clip = { video, texture, ready: false, onReady: null };
+        video.addEventListener("playing", () => {
+            clip.ready = true;
+            if (clip.onReady) clip.onReady();
+            clip.onReady = null;
+        });
+        this.clips.set(src, clip);
+        return clip;
+    }
+
+    stopVideo(screen) {
+        if (!screen.playing) return;
+        screen.playing.video.pause();
+        screen.playing.onReady = null;
+        screen.playing = null;
     }
 
     // Draw the image cropped to the screen's shape, like CSS object-fit:
@@ -119,10 +192,21 @@ export default class ScreenShowcase {
         return texture;
     }
 
-    apply(screen, texture) {
+    apply(screen, texture, flash = true) {
         const material = screen.mesh.material;
         if (material.map === texture) return;
+        if (needsRecompile(material.map, texture)) material.needsUpdate = true;
         material.map = texture;
+
+        const isOriginal = texture === screen.original;
+        const toneMapped = isOriginal ? screen.originalToneMapped : false;
+        if (material.toneMapped !== toneMapped) {
+            material.toneMapped = toneMapped;
+            material.needsUpdate = true;
+        }
+        material.userData.glowScale = isOriginal ? 1 : CARD_GLOW;
+
+        if (!flash) return;
         // A quick brightness flash, like the screen switching inputs.
         GSAP.fromTo(
             material.color,
@@ -137,7 +221,9 @@ export default class ScreenShowcase {
         screen.hovered = null;
         clearTimeout(screen.restoreTimer);
         screen.restoreTimer = setTimeout(() => {
-            if (!screen.hovered) this.apply(screen, screen.original);
+            if (screen.hovered) return;
+            this.stopVideo(screen);
+            this.apply(screen, screen.original);
         }, RESTORE_DELAY_MS);
     }
 }

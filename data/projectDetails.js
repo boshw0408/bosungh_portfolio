@@ -8,11 +8,16 @@
  * 3. Tools
  * 4. Technical Implementation section
  * 5. Impact section
+ *
+ * Optional: screenVideo is a short muted loop that plays on the room's desk
+ * monitor (works) or TV (experiences) while the card is hovered. Encode it
+ * at the screen's shape: 876x600 for the monitor, 854x480 for the TV.
  */
 
 export const projectDetails = {
   // Works
   campass: {
+    screenVideo: "./screens/campass.mp4",
     title: "Campass",
     category: "work",
     description: 
@@ -38,6 +43,7 @@ export const projectDetails = {
     tools: ["ReactNative", "Typescript", "Node.js", "Express.js", "FireBase", "Render", "Jest", "Github Actions"]
   },
   autotrip: {
+    screenVideo: "./screens/autotrip.mp4",
     title: "AutoTrip",
     category: "work",
     description: `AutoTrip is an AI-powered travel planner that automates hotel selection, route planning, and restaurant recommendations to generate personalized, day-by-day itineraries. Users enter basic details such as dates, budget, group size, and interests, and AutoTrip finds optimal routes, recommends hotels at logical stopping points, and surfaces popular attractions and restaurants along the way. It then organizes everything into a complete itinerary with cost estimates, travel times, maps, and suggested stops, which could be all exportable as a PDF or synced to a calendar.`,
@@ -104,6 +110,7 @@ export const projectDetails = {
     tools: ["PyTorch", "NLTK", "Scikit-learn", "NumPy"]
   },
   bobatime: {
+    screenVideo: "./screens/bobatime.mp4",
     title: "Boba Time",
     category: "work",
     description: `Boba Time is an iOS application that recommends a personalized boba drink. The app guides users through series of MBTI personality traits questions to determine whether users prefer classic milk teas, fruit teas, brown sugar drinks, or more experimental combinations.`,
@@ -127,6 +134,9 @@ export const projectDetails = {
 
   // Experiences
   notebar: {
+    // Official NoteBar demo, in full, from
+    // https://okny.io/wp-content/themes/okny-theme/assets/notebar_demo.mp4
+    screenVideo: "./screens/notebar.mp4",
     title: "Software Engineering Intern",
     company: "NoteBar, NY",
     role: "Full Stack & ML Development",
@@ -153,6 +163,8 @@ export const projectDetails = {
     websiteUrl: "https://okny.io/"
   },
   sky_computing_lab: {
+    // Official Agent Mode video from arena.ai
+    screenVideo: "./screens/sky_computing_lab.mp4",
     title: "Research Assistant",
     company: "Sky Computing Lab, Berkeley, CA",
     role: "Full Stack Development",
@@ -178,6 +190,8 @@ export const projectDetails = {
     websiteUrl: "https://lmarena.ai/"
   },
   karrot: {
+    // Official brand film from about.daangn.com
+    screenVideo: "./screens/karrot.mp4",
     title: "Software Engineering Intern",
     company: "Karrot, South Korea",
     role: "Search & Discovery Team",
@@ -201,6 +215,8 @@ export const projectDetails = {
     websiteUrl: "https://www.karrotmarket.com/"
   },
   uc_berkeley_tutor: {
+    // Screen recording of ds100.org
+    screenVideo: "./screens/uc_berkeley_tutor.mp4",
     title: "Undergraduate Course Staff/Tutor",
     company: "UC Berkeley, CA",
     role: "Principles & Techniques of Data Science (Data 100)",

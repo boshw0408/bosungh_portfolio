@@ -14,9 +14,9 @@ const FRAMES = {
         fill: 1,
     },
     experience: {
-        objects: ["television", "speaker"],
+        objects: ["television"],
         side: "right",
-        fill: 0.9,
+        fill: 1,
     },
 };
 

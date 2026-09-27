@@ -115,12 +115,14 @@ export default class Bloom {
             let glow = this.glowMaterials.get(mesh);
             if (!glow) {
                 glow = new THREE.MeshBasicMaterial({ toneMapped: false });
-                glow.color.setScalar(SCREEN_GLOW);
                 this.glowMaterials.set(mesh, glow);
             }
+            // ScreenShowcase.js lowers this for bright hover media.
+            const glowScale = material.userData.glowScale ?? 1;
+            glow.color.setScalar(SCREEN_GLOW * glowScale);
             // The TV's material is swapped for the video after the intro.
             if (glow.map !== material.map) {
-                if (!glow.map !== !material.map) glow.needsUpdate = true;
+                if (needsRecompile(glow.map, material.map)) glow.needsUpdate = true;
                 glow.map = material.map;
             }
             return glow;
@@ -174,4 +176,12 @@ export default class Bloom {
     resize() {
         this.composer.setSize(this.sizes.width, this.sizes.height);
     }
+}
+
+// three.js only recompiles a material's shader when told to. Swapping
+// between no texture and a texture, or between an image and a video (which
+// needs an extra color decode step), changes the shader.
+export function needsRecompile(previous, next) {
+    if (!previous !== !next) return true;
+    return Boolean(previous && previous.isVideoTexture) !== Boolean(next && next.isVideoTexture);
 }
